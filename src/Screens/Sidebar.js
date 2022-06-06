@@ -7,8 +7,11 @@ import {
     Image ,
     SafeAreaView,
     ScrollView,
-    LayoutAnimation
+    LayoutAnimation,
+    UIManager,
+    Platform
 } from 'react-native';
+
 import Button from './components/Button';
 
 
@@ -116,6 +119,11 @@ const ExpandableComponent = ({item,onCLickFunction})=> {
 const Sidebar = ({navigation}) => {
 
     const [listDataSource,setlistDataSource] = useState(CONTENT);
+
+    if(Platform.OS === 'android'){
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
+
     const updateLayout = (index)=>{
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         const array = [...listDataSource];
@@ -138,7 +146,7 @@ const Sidebar = ({navigation}) => {
                         width:150,
                     }}/>
                 <TouchableOpacity
-                    
+                    onPress={()=>{navigation.pop()}}
                 >
                 <Image
                     source={require('../../assets/cross.png')}
@@ -204,7 +212,6 @@ const styles = StyleSheet.create({
         marginLeft:10,
         paddingHorizontal:10,
         backgroundColor: '#fff',
-        flexDirection:'row'
     },
     text:{
         fontSize:16,

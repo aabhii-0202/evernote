@@ -11,6 +11,8 @@ import {
 import Button1 from './components/Button1';
 import Card from './components/Card';
 import Card2 from './components/Card2';
+import Swiper from "react-native-web-swiper";
+import SliderItem from './components/SliderItem';
 
 
 const HomeScreen = ({navigation}) => {
@@ -42,13 +44,6 @@ const HomeScreen = ({navigation}) => {
                     }}/>
             </TouchableOpacity>
             </View>
-            
-            {/* <View style={{
-                    width:'100%',
-                    height:1,
-                    backgroundColor:'black',
-                    marginTop:8
-                    }}/> */}
 
             <ScrollView>
                 <Text style={styles.head}>Tame your work, organize your life</Text>
@@ -58,19 +53,64 @@ const HomeScreen = ({navigation}) => {
                 <Image
                     source={require('../../assets/img1.png')}
                     style={styles.contentimg}/>
-                <View>
-
-
-                </View>
-
                 <Text style={styles.head}>Find your productivity happy place</Text>
                 <Text style={styles.subhead}>See what’s possible with Evernote</Text>
                 <Image
-                    source={require('../../assets/img1.png')}
-                    style={styles.contentimg}/>
-                <View>
+                    source={require('../../assets/img7.png')}
+                    style={styles.contentimg2}/>
+               
+                <View style={{ flex: 1,height:500 }}>
+                <Swiper
+                    index={1}
+                >
+                    <View style={[styles.slideContainer,styles.slide1]}>
+                    <SliderItem
+                        t1='Evernote is a powerful tool that can help executives, entrepreneurs and creative people capture and arrange their ideas. All you have to do is use it.'
+                        t2='— Forbes'
+                        t3='Forbes'
+                    />
 
+                    </View>
+                    <View style={[styles.slideContainer,styles.slide2]}>
+                    <SliderItem
+                        t1='Evernote is a powerful tool for managing your tasks right alongside all of the information you work with every day.'
+                        t2='— Inc. Magazine'
+                        t3='Inc.'
+                    />
+                    </View>
+                    <View style={[styles.slideContainer,styles.slide3]}>
+                    <SliderItem
+                        t1='It feels like there are endless ways to use Evernote… Use it for school, work, life, and beyond.'
+                        t2='— The Verge'
+                        t3='The Verge'
+                    />
+                    </View>
+                    <View style={[styles.slideContainer,styles.slide1]}>
+                    <SliderItem
+                        t1='Evernote is a powerful tool that can help executives, entrepreneurs and creative people capture and arrange their ideas. All you have to do is use it.'
+                        t2='— Forbes'
+                        t3='Forbes'
+                    />
+
+                    </View>
+                    <View style={[styles.slideContainer,styles.slide2]}>
+                    <SliderItem
+                        t1='Evernote is a powerful tool for managing your tasks right alongside all of the information you work with every day.'
+                        t2='— Inc. Magazine'
+                        t3='Inc.'
+                    />
+                    </View>
+                    <View style={[styles.slideContainer,styles.slide3]}>
+                    <SliderItem
+                        t1='It feels like there are endless ways to use Evernote… Use it for school, work, life, and beyond.'
+                        t2='— The Verge'
+                        t3='The Verge'
+                    />
+                    </View>
+                </Swiper>
                 </View>
+      
+
                 <Image
                     source={require('../../assets/img2.png')}
                     style={styles.contentimg}/>
@@ -263,6 +303,12 @@ const styles = StyleSheet.create({
         width:'100%',
         marginTop:20
     },
+    contentimg2:{
+        marginHorizontal:16,
+        height:200,
+        width:'90%',
+        marginTop:20
+    },
     head2:{
         alignSelf:'flex-start',
         color:'black',
@@ -286,7 +332,21 @@ const styles = StyleSheet.create({
         marginTop:16,
         marginBottom:32,
         marginHorizontal:16
-    }
+    },
+    slideContainer: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+      },
+      slide1: {
+        backgroundColor: '#F5F5F5'
+      },
+      slide2: {
+        backgroundColor: '#F5F5F5'
+      },
+      slide3: {
+        backgroundColor: '#F5F5F5'
+      },
 });
 
 
